@@ -3,7 +3,7 @@ import { z } from 'zod'
 
 export const ListWebhooks: FastifyPluginAsyncZod = async (app) => {
   app.get(
-    '/api/webhooks', 
+    '/api/webhooks',
     {
       schema: {
         summary: 'List webhooks',
@@ -16,11 +16,11 @@ export const ListWebhooks: FastifyPluginAsyncZod = async (app) => {
             z.object({
               id: z.string(),
               method: z.string(),
-            })
-          )
-        }
+            }),
+          ),
+        },
       },
-    }, 
+    },
     async (request, reply) => {
       const { limit } = request.query
 
@@ -28,7 +28,8 @@ export const ListWebhooks: FastifyPluginAsyncZod = async (app) => {
         {
           id: '123',
           method: 'POST',
-        }
+        },
       ]
-    })
+    },
+  )
 }

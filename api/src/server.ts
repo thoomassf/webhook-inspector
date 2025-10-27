@@ -27,14 +27,14 @@ app.register(fastifySwagger, {
     info: {
       title: 'Webhook Inspector API',
       description: 'API for capturing and inspecting webhook requests',
-      version: '1.0.0'
+      version: '1.0.0',
     },
   },
   transform: jsonSchemaTransform,
 })
 
 app.register(ScalarApiReference, {
-  routePrefix: '/docs'
+  routePrefix: '/docs',
 })
 
 app.register(ListWebhooks)
