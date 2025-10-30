@@ -76,7 +76,7 @@ async function seed() {
         'stripe-signature': `t=${bodyObject.created},v1=${faker.string.hexadecimal({ length: 64, casing: 'lower' })}`,
         'content-type': 'application/json; charset=utf-8',
       },
-      body,
+      body: JSON.stringify(body, null, 2),
       createdAt: new Date(bodyObject.created * 1000),
     })
   }
