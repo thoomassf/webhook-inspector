@@ -18,7 +18,7 @@ export const ListWebhooks: FastifyPluginAsyncZod = async (app) => {
         }),
         response: {
           200: z.object({
-              webhooks: z.array(
+            webhooks: z.array(
               createSelectSchema(webhooks).pick({
                 id: true,
                 method: true,
@@ -44,7 +44,7 @@ export const ListWebhooks: FastifyPluginAsyncZod = async (app) => {
         .from(webhooks)
         .where(cursor ? lt(webhooks.id, cursor) : undefined)
         .orderBy(desc(webhooks.id))
-        .limit(limit  + 1)
+        .limit(limit + 1)
 
       const hasMore = result.length > limit
       const items = hasMore ? result.slice(0, limit) : result
