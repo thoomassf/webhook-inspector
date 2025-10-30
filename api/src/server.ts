@@ -10,6 +10,9 @@ import { fastifyCors } from '@fastify/cors'
 import ScalarApiReference from '@scalar/fastify-api-reference'
 import { ListWebhooks } from './routes/list-webhooks'
 import { env } from './env'
+import { GetWebhook } from './routes/get-webhook'
+import { DeleteWebhook } from './routes/delete-webhook'
+import { CaptureWebhook } from './routes/capture-webhook'
 
 const app = fastify()
 
@@ -38,6 +41,9 @@ app.register(ScalarApiReference, {
 })
 
 app.register(ListWebhooks)
+app.register(GetWebhook)
+app.register(DeleteWebhook)
+app.register(CaptureWebhook)
 
 app.listen({ port: env.PORT, host: '0.0.0.0' }).then(() => {
   console.log(`🔥 HTTP server running on http://localhost:${env.PORT}`)
