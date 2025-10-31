@@ -13,6 +13,7 @@ import { env } from './env'
 import { GetWebhook } from './routes/get-webhook'
 import { DeleteWebhook } from './routes/delete-webhook'
 import { CaptureWebhook } from './routes/capture-webhook'
+import { generateHandler } from './routes/generate-handler'
 
 const app = fastify()
 
@@ -44,6 +45,7 @@ app.register(ListWebhooks)
 app.register(GetWebhook)
 app.register(DeleteWebhook)
 app.register(CaptureWebhook)
+app.register(generateHandler)
 
 app.listen({ port: env.PORT, host: '0.0.0.0' }).then(() => {
   console.log(`🔥 HTTP server running on http://localhost:${env.PORT}`)
