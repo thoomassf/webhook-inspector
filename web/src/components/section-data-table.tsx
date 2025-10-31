@@ -1,8 +1,8 @@
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface SectionDataTableProps extends ComponentProps<'div'> {
-  data: Array<{ key: string; value: string }>
+  data: Array<{ key: ReactNode; value: ReactNode }>
 }
 
 export function SectionDataTable({
@@ -23,7 +23,7 @@ export function SectionDataTable({
           {data.map((item) => {
             return (
               <tr
-                key={item.key}
+                key={String(item.key)}
                 className="border-b border-zinc-700 last:border-0"
               >
                 <td className="p-3 text-sm font-medium text-zinc-400 bg-zinc-800/50 border-r border-zinc-700">
